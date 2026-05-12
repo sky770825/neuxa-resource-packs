@@ -113,6 +113,7 @@
         }
 
         .btn {
+            display: inline-block;
             padding: 16px 32px;
             font-size: 16px;
             font-weight: 600;
@@ -120,6 +121,18 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         a:focus-visible,
@@ -414,8 +427,7 @@
             transform: scale(1.02);
         }
 
-        .pricing-card.featured::before {
-            content: '熱門';
+        .pricing-badge {
             position: absolute;
             top: -12px;
             left: 50%;
@@ -468,6 +480,13 @@
         .pricing-features li::before {
             content: '✓';
             color: var(--gold);
+        }
+
+        .pricing-contact {
+            margin-top: 12px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
         }
 
         /* CTA */
@@ -658,17 +677,17 @@
                 <button id="tab-korean" class="industry-tab" type="button" role="tab" aria-selected="false" aria-controls="korean-panel" tabindex="-1" onclick="showIndustry('korean-panel', this)" data-target="korean-panel">韓式</button>
             </div>
 
-            <div id="hotpot-panel" class="industry-content active" role="tabpanel" aria-labelledby="tab-hotpot">
+            <div id="hotpot-panel" class="industry-content active" role="tabpanel" aria-labelledby="tab-hotpot" tabindex="0">
                 <div class="industry-info">
                     <h3><span aria-hidden="true">🔥</span> 火鍋</h3>
                     <p>深夜、都會、Lounge 風格。暖霧逆光，營造麻辣煙霧的儀式感。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
-                        <div class="color-swatch" style="background:#C4382A" data-hex="#C4382A"></div>
-                        <div class="color-swatch" style="background:#D4A843" data-hex="#D4A843"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
-                        <div class="color-swatch" style="background:#2D2D2D" data-hex="#2D2D2D"></div>
-                        <div class="color-swatch" style="background:#FFFFFF" data-hex="#FFFFFF"></div>
+                        <div class="color-swatch" style="background:#C4382A" data-hex="#C4382A"><span class="sr-only">#C4382A</span></div>
+                        <div class="color-swatch" style="background:#D4A843" data-hex="#D4A843"><span class="sr-only">#D4A843</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
+                        <div class="color-swatch" style="background:#2D2D2D" data-hex="#2D2D2D"><span class="sr-only">#2D2D2D</span></div>
+                        <div class="color-swatch" style="background:#FFFFFF" data-hex="#FFFFFF"><span class="sr-only">#FFFFFF</span></div>
                     </div>
                 </div>
                 <div class="prompt-box">
@@ -682,11 +701,11 @@
                     <p>炭火、煙霧、粗獷。側光強調火焰，暖黃色調呈現燒烤的原始魅力。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
-                        <div class="color-swatch" style="background:#8B2500" data-hex="#8B2500"></div>
-                        <div class="color-swatch" style="background:#D4A843" data-hex="#D4A843"></div>
-                        <div class="color-swatch" style="background:#2D2D2D" data-hex="#2D2D2D"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
-                        <div class="color-swatch" style="background:#FFFFFF" data-hex="#FFFFFF"></div>
+                        <div class="color-swatch" style="background:#8B2500" data-hex="#8B2500"><span class="sr-only">#8B2500</span></div>
+                        <div class="color-swatch" style="background:#D4A843" data-hex="#D4A843"><span class="sr-only">#D4A843</span></div>
+                        <div class="color-swatch" style="background:#2D2D2D" data-hex="#2D2D2D"><span class="sr-only">#2D2D2D</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
+                        <div class="color-swatch" style="background:#FFFFFF" data-hex="#FFFFFF"><span class="sr-only">#FFFFFF</span></div>
                     </div>
                 </div>
                 <div class="prompt-box">
@@ -700,11 +719,11 @@
                     <p>清新、透亮、療癒。自然光搭配柔光，展現茶飲的清爽質感。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
-                        <div class="color-swatch" style="background:#2D5A27" data-hex="#2D5A27"></div>
-                        <div class="color-swatch" style="background:#8BC34A" data-hex="#8BC34A"></div>
-                        <div class="color-swatch" style="background:#F5F5DC" data-hex="#F5F5DC"></div>
-                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
+                        <div class="color-swatch" style="background:#2D5A27" data-hex="#2D5A27"><span class="sr-only">#2D5A27</span></div>
+                        <div class="color-swatch" style="background:#8BC34A" data-hex="#8BC34A"><span class="sr-only">#8BC34A</span></div>
+                        <div class="color-swatch" style="background:#F5F5DC" data-hex="#F5F5DC"><span class="sr-only">#F5F5DC</span></div>
+                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"><span class="sr-only">#FAFAFA</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
                     </div>
                 </div>
                 <div class="prompt-box">
@@ -718,11 +737,11 @@
                     <p>暖調、文青、慢時光。暖黃木質調，呈現咖啡館的溫馨氛圍。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
-                        <div class="color-swatch" style="background:#6F4E37" data-hex="#6F4E37"></div>
-                        <div class="color-swatch" style="background:#D2B48C" data-hex="#D2B48C"></div>
-                        <div class="color-swatch" style="background:#2C2C2C" data-hex="#2C2C2C"></div>
-                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
+                        <div class="color-swatch" style="background:#6F4E37" data-hex="#6F4E37"><span class="sr-only">#6F4E37</span></div>
+                        <div class="color-swatch" style="background:#D2B48C" data-hex="#D2B48C"><span class="sr-only">#D2B48C</span></div>
+                        <div class="color-swatch" style="background:#2C2C2C" data-hex="#2C2C2C"><span class="sr-only">#2C2C2C</span></div>
+                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"><span class="sr-only">#FAFAFA</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
                     </div>
                 </div>
                 <div class="prompt-box">
@@ -736,11 +755,11 @@
                     <p>繽紛、活力、年輕。明亮乾淨的視角，展現韓式料理的繽紛色彩。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
-                        <div class="color-swatch" style="background:#C73E3A" data-hex="#C73E3A"></div>
-                        <div class="color-swatch" style="background:#FFD700" data-hex="#FFD700"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
-                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"></div>
-                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"></div>
+                        <div class="color-swatch" style="background:#C73E3A" data-hex="#C73E3A"><span class="sr-only">#C73E3A</span></div>
+                        <div class="color-swatch" style="background:#FFD700" data-hex="#FFD700"><span class="sr-only">#FFD700</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
+                        <div class="color-swatch" style="background:#FAFAFA" data-hex="#FAFAFA"><span class="sr-only">#FAFAFA</span></div>
+                        <div class="color-swatch" style="background:#1A1A1A" data-hex="#1A1A1A"><span class="sr-only">#1A1A1A</span></div>
                     </div>
                 </div>
                 <div class="prompt-box">
@@ -770,9 +789,11 @@
                         <li>社群文案模板</li>
                     </ul>
                     <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E9%A4%90%E9%A3%B2%E5%93%81%E7%89%8C%E6%B5%81%E6%B0%B4%E7%B7%9A%E8%B3%87%E6%BA%90%E5%8C%85" class="btn btn-outline" style="width:100%; text-align:center;">取得資源包</a>
+                    <p class="pricing-contact">sales@neuxa.com</p>
                 </div>
 
                 <div class="pricing-card featured">
+                    <div class="pricing-badge">熱門</div>
                     <div class="pricing-name">產業年訂閱</div>
                     <div class="pricing-price">NT$6,800<span>/年</span></div>
                     <p class="pricing-desc">適合需要持續更新內容的店家</p>
@@ -784,6 +805,7 @@
                         <li>優先取得新產業包</li>
                     </ul>
                     <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E7%94%A2%E6%A5%AD%E5%B9%B4%E8%A8%82%E9%96%B1" class="btn btn-primary" style="width:100%; text-align:center;">開始年訂閱</a>
+                    <p class="pricing-contact">sales@neuxa.com</p>
                 </div>
 
                 <div class="pricing-card">
@@ -797,6 +819,7 @@
                         <li>企業訓練教材</li>
                     </ul>
                     <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E7%99%BD%E6%A8%99%E6%8E%88%E6%AC%8A" class="btn btn-outline" style="width:100%; text-align:center;">取得白標</a>
+                    <p class="pricing-contact">sales@neuxa.com</p>
                 </div>
             </div>
         </div>
@@ -830,6 +853,11 @@
                 const isActive = panel.id === panelId;
                 panel.classList.toggle('active', isActive);
                 panel.hidden = !isActive;
+                if (isActive) {
+                    panel.setAttribute('tabindex', '0');
+                } else {
+                    panel.removeAttribute('tabindex');
+                }
             });
 
             industryTabs.forEach(tab => {
