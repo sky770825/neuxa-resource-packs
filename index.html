@@ -122,6 +122,13 @@
             transition: all 0.3s ease;
         }
 
+        a:focus-visible,
+        button:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
         .btn-primary {
             background: var(--primary);
             color: var(--light);
@@ -157,6 +164,10 @@
             display: flex;
             animation: marquee 30s linear infinite;
             width: max-content;
+        }
+
+        .marquee-group {
+            display: flex;
         }
 
         .marquee-item {
@@ -526,6 +537,7 @@
     </style>
 </head>
 <body>
+    <main>
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -542,16 +554,20 @@
     <!-- Marquee -->
     <div class="marquee">
         <div class="marquee-content">
-            <div class="marquee-item"><span>●</span> 品牌定位 Prompt</div>
-            <div class="marquee-item"><span>●</span> DALL-E 圖片攻略</div>
-            <div class="marquee-item"><span>●</span> 色彩配方</div>
-            <div class="marquee-item"><span>●</span> 社群文案模板</div>
-            <div class="marquee-item"><span>●</span> 5個產業參考</div>
-            <div class="marquee-item"><span>●</span> 品牌定位 Prompt</div>
-            <div class="marquee-item"><span>●</span> DALL-E 圖片攻略</div>
-            <div class="marquee-item"><span>●</span> 色彩配方</div>
-            <div class="marquee-item"><span>●</span> 社群文案模板</div>
-            <div class="marquee-item"><span>●</span> 5個產業參考</div>
+            <div class="marquee-group">
+                <div class="marquee-item"><span aria-hidden="true">●</span> 品牌定位 Prompt</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> DALL-E 圖片攻略</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 色彩配方</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 社群文案模板</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 5個產業參考</div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="marquee-item"><span aria-hidden="true">●</span> 品牌定位 Prompt</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> DALL-E 圖片攻略</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 色彩配方</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 社群文案模板</div>
+                <div class="marquee-item"><span aria-hidden="true">●</span> 5個產業參考</div>
+            </div>
         </div>
     </div>
 
@@ -564,22 +580,22 @@
             
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon">💸</div>
+                    <div class="problem-icon" aria-hidden="true">💸</div>
                     <h3>設計師太貴</h3>
                     <p>找人做一套品牌視覺，動輒 2-5 萬。還要來回溝通修改，少則兩週，多則一個月。</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">🤯</div>
+                    <div class="problem-icon" aria-hidden="true">🤯</div>
                     <h3>自己學太慢</h3>
                     <p>Figma、Canva、AI 工具...研究了一圈，發現自己還是做不出「看起來專業」的素材。</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">📱</div>
+                    <div class="problem-icon" aria-hidden="true">📱</div>
                     <h3>內容做不完</h3>
                     <p>IG、FB、Google 商家、外送平台...每個平台都要圖文，沒有團隊根本跟不上。</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">🔄</div>
+                    <div class="problem-icon" aria-hidden="true">🔄</div>
                     <h3>更新來不及</h3>
                     <p>菜單改了、季節換了、節日到了...每次都要重新找人做，來不及又浪費錢。</p>
                 </div>
@@ -596,7 +612,7 @@
 
             <div class="solution-grid">
                 <div class="solution-card">
-                    <h3>📦 完整資源包</h3>
+                    <h3><span aria-hidden="true">📦</span> 完整資源包</h3>
                     <ul class="solution-list">
                         <li>品牌定位 Prompt 套件</li>
                         <li>DALL-E 圖片生成攻略</li>
@@ -606,7 +622,7 @@
                     </ul>
                 </div>
                 <div class="solution-card">
-                    <h3>⚡ 快速見效</h3>
+                    <h3><span aria-hidden="true">⚡</span> 快速見效</h3>
                     <ul class="solution-list">
                         <li>5分鐘產出第一個品牌定位</li>
                         <li>10分鐘生成第一張視覺素材</li>
@@ -615,7 +631,7 @@
                     </ul>
                 </div>
                 <div class="solution-card">
-                    <h3>🎯 產業專屬</h3>
+                    <h3><span aria-hidden="true">🎯</span> 產業專屬</h3>
                     <ul class="solution-list">
                         <li>火鍋 / 燒肉 / 茶飲</li>
                         <li>咖啡 / 韓式料理</li>
@@ -635,16 +651,16 @@
             <p class="section-desc">每個產業都有專屬的色彩、燈光、氛圍關鍵詞。</p>
 
             <div class="industry-tabs" role="tablist" aria-label="產業類別">
-                <button class="industry-tab active" role="tab" aria-selected="true" aria-controls="hotpot-panel" onclick="showIndustry('hotpot', this)" data-target="hotpot">火鍋</button>
-                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="bbq-panel" onclick="showIndustry('bbq', this)" data-target="bbq">燒肉</button>
-                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="tea-panel" onclick="showIndustry('tea', this)" data-target="tea">茶飲</button>
-                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="coffee-panel" onclick="showIndustry('coffee', this)" data-target="coffee">咖啡</button>
-                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="korean-panel" onclick="showIndustry('korean', this)" data-target="korean">韓式</button>
+                <button id="tab-hotpot" class="industry-tab active" type="button" role="tab" aria-selected="true" aria-controls="hotpot-panel" tabindex="0" onclick="showIndustry('hotpot-panel', this)" data-target="hotpot-panel">火鍋</button>
+                <button id="tab-bbq" class="industry-tab" type="button" role="tab" aria-selected="false" aria-controls="bbq-panel" tabindex="-1" onclick="showIndustry('bbq-panel', this)" data-target="bbq-panel">燒肉</button>
+                <button id="tab-tea" class="industry-tab" type="button" role="tab" aria-selected="false" aria-controls="tea-panel" tabindex="-1" onclick="showIndustry('tea-panel', this)" data-target="tea-panel">茶飲</button>
+                <button id="tab-coffee" class="industry-tab" type="button" role="tab" aria-selected="false" aria-controls="coffee-panel" tabindex="-1" onclick="showIndustry('coffee-panel', this)" data-target="coffee-panel">咖啡</button>
+                <button id="tab-korean" class="industry-tab" type="button" role="tab" aria-selected="false" aria-controls="korean-panel" tabindex="-1" onclick="showIndustry('korean-panel', this)" data-target="korean-panel">韓式</button>
             </div>
 
-            <div id="hotpot" class="industry-content active" role="tabpanel" aria-labelledby="tab-hotpot">
+            <div id="hotpot-panel" class="industry-content active" role="tabpanel" aria-labelledby="tab-hotpot">
                 <div class="industry-info">
-                    <h3>🔥 火鍋</h3>
+                    <h3><span aria-hidden="true">🔥</span> 火鍋</h3>
                     <p>深夜、都會、Lounge 風格。暖霧逆光，營造麻辣煙霧的儀式感。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
@@ -660,9 +676,9 @@
                 </div>
             </div>
 
-            <div id="bbq" class="industry-content" role="tabpanel" aria-labelledby="tab-bbq">
+            <div id="bbq-panel" class="industry-content" role="tabpanel" aria-labelledby="tab-bbq" hidden>
                 <div class="industry-info">
-                    <h3>🥩 燒肉</h3>
+                    <h3><span aria-hidden="true">🥩</span> 燒肉</h3>
                     <p>炭火、煙霧、粗獷。側光強調火焰，暖黃色調呈現燒烤的原始魅力。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
@@ -678,9 +694,9 @@
                 </div>
             </div>
 
-            <div id="tea" class="industry-content" role="tabpanel" aria-labelledby="tab-tea">
+            <div id="tea-panel" class="industry-content" role="tabpanel" aria-labelledby="tab-tea" hidden>
                 <div class="industry-info">
-                    <h3>🍵 茶飲</h3>
+                    <h3><span aria-hidden="true">🍵</span> 茶飲</h3>
                     <p>清新、透亮、療癒。自然光搭配柔光，展現茶飲的清爽質感。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
@@ -696,9 +712,9 @@
                 </div>
             </div>
 
-            <div id="coffee" class="industry-content" role="tabpanel" aria-labelledby="tab-coffee">
+            <div id="coffee-panel" class="industry-content" role="tabpanel" aria-labelledby="tab-coffee" hidden>
                 <div class="industry-info">
-                    <h3>☕ 咖啡</h3>
+                    <h3><span aria-hidden="true">☕</span> 咖啡</h3>
                     <p>暖調、文青、慢時光。暖黃木質調，呈現咖啡館的溫馨氛圍。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
@@ -714,9 +730,9 @@
                 </div>
             </div>
 
-            <div id="korean" class="industry-content" role="tabpanel" aria-labelledby="tab-korean">
+            <div id="korean-panel" class="industry-content" role="tabpanel" aria-labelledby="tab-korean" hidden>
                 <div class="industry-info">
-                    <h3>🇰🇷 韓式</h3>
+                    <h3><span aria-hidden="true">🇰🇷</span> 韓式</h3>
                     <p>繽紛、活力、年輕。明亮乾淨的視角，展現韓式料理的繽紛色彩。</p>
                     <div class="color-palette-label">色彩配方</div>
                     <div class="color-palette">
@@ -753,7 +769,7 @@
                         <li>DALL-E 圖片攻略</li>
                         <li>社群文案模板</li>
                     </ul>
-                    <a href="mailto:sales@neuxa.com?subject=購買餐飲品牌流水線資源包" class="btn btn-outline" style="width:100%; text-align:center;">取得資源包</a>
+                    <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E9%A4%90%E9%A3%B2%E5%93%81%E7%89%8C%E6%B5%81%E6%B0%B4%E7%B7%9A%E8%B3%87%E6%BA%90%E5%8C%85" class="btn btn-outline" style="width:100%; text-align:center;">取得資源包</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -767,7 +783,7 @@
                         <li>社群提問頻道</li>
                         <li>優先取得新產業包</li>
                     </ul>
-                    <a href="mailto:sales@neuxa.com?subject=購買產業年訂閱" class="btn btn-primary" style="width:100%; text-align:center;">開始年訂閱</a>
+                    <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E7%94%A2%E6%A5%AD%E5%B9%B4%E8%A8%82%E9%96%B1" class="btn btn-primary" style="width:100%; text-align:center;">開始年訂閱</a>
                 </div>
 
                 <div class="pricing-card">
@@ -780,7 +796,7 @@
                         <li>優先取得新包搶先版</li>
                         <li>企業訓練教材</li>
                     </ul>
-                    <a href="mailto:sales@neuxa.com?subject=購買白標授權" class="btn btn-outline" style="width:100%; text-align:center;">取得白標</a>
+                    <a href="mailto:sales@neuxa.com?subject=%E8%B3%BC%E8%B2%B7%E7%99%BD%E6%A8%99%E6%8E%88%E6%AC%8A" class="btn btn-outline" style="width:100%; text-align:center;">取得白標</a>
                 </div>
             </div>
         </div>
@@ -791,9 +807,10 @@
         <div class="container">
             <h2>想要一個<strong style="color:var(--primary)">示範案例</strong>？</h2>
             <p>如果你現在有一個餐飲品牌構想，告訴我。我用 30 分鐘幫你跑一遍流程，你可以看到「買了之後會拿到什麼」。</p>
-                    <a href="mailto:contact@neuxa.com?subject=餐飲品牌流水線資源包" class="btn btn-primary">預約示範</a>
+            <a href="mailto:contact@neuxa.com?subject=%E9%A4%90%E9%A3%B2%E5%93%81%E7%89%8C%E6%B5%81%E6%B0%B4%E7%B7%9A%E8%B3%87%E6%BA%90%E5%8C%85" class="btn btn-primary">預約示範 contact@neuxa.com</a>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -803,19 +820,40 @@
     </footer>
 
     <script>
-        function showIndustry(id, btn) {
-            // Fix: use btn param instead of event.target (Firefox compatibility)
-            document.querySelectorAll('.industry-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.industry-tab').forEach(el => {
-                el.classList.remove('active');
-                el.setAttribute('aria-selected', 'false');
+        const industryTabs = Array.from(document.querySelectorAll('.industry-tab'));
+        const industryPanels = Array.from(document.querySelectorAll('.industry-content'));
+
+        function showIndustry(panelId, btn) {
+            const selectedTab = btn || industryTabs.find(tab => tab.getAttribute('aria-controls') === panelId);
+
+            industryPanels.forEach(panel => {
+                const isActive = panel.id === panelId;
+                panel.classList.toggle('active', isActive);
+                panel.hidden = !isActive;
             });
-            document.getElementById(id).classList.add('active');
-            if (btn) {
-                btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-            }
+
+            industryTabs.forEach(tab => {
+                const isActive = tab === selectedTab;
+                tab.classList.toggle('active', isActive);
+                tab.setAttribute('aria-selected', String(isActive));
+                tab.setAttribute('tabindex', isActive ? '0' : '-1');
+            });
         }
+
+        document.querySelector('.industry-tabs').addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+                return;
+            }
+
+            event.preventDefault();
+            const currentIndex = industryTabs.indexOf(document.activeElement);
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const nextIndex = (currentIndex + direction + industryTabs.length) % industryTabs.length;
+            const nextTab = industryTabs[nextIndex];
+
+            showIndustry(nextTab.getAttribute('aria-controls'), nextTab);
+            nextTab.focus();
+        });
     </script>
 </body>
 </html>
