@@ -498,6 +498,21 @@
             animation: fadeIn 0.8s ease forwards;
         }
 
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .marquee-content {
+                animation: none;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .industry-content.active {
@@ -619,15 +634,15 @@
             <h2 class="section-title">5個餐飲產業的視覺配方</h2>
             <p class="section-desc">每個產業都有專屬的色彩、燈光、氛圍關鍵詞。</p>
 
-            <div class="industry-tabs">
-                <button class="industry-tab active" onclick="showIndustry('hotpot')">火鍋</button>
-                <button class="industry-tab" onclick="showIndustry('bbq')">燒肉</button>
-                <button class="industry-tab" onclick="showIndustry('tea')">茶飲</button>
-                <button class="industry-tab" onclick="showIndustry('coffee')">咖啡</button>
-                <button class="industry-tab" onclick="showIndustry('korean')">韓式</button>
+            <div class="industry-tabs" role="tablist" aria-label="產業類別">
+                <button class="industry-tab active" role="tab" aria-selected="true" aria-controls="hotpot-panel" onclick="showIndustry('hotpot', this)" data-target="hotpot">火鍋</button>
+                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="bbq-panel" onclick="showIndustry('bbq', this)" data-target="bbq">燒肉</button>
+                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="tea-panel" onclick="showIndustry('tea', this)" data-target="tea">茶飲</button>
+                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="coffee-panel" onclick="showIndustry('coffee', this)" data-target="coffee">咖啡</button>
+                <button class="industry-tab" role="tab" aria-selected="false" aria-controls="korean-panel" onclick="showIndustry('korean', this)" data-target="korean">韓式</button>
             </div>
 
-            <div id="hotpot" class="industry-content active">
+            <div id="hotpot" class="industry-content active" role="tabpanel" aria-labelledby="tab-hotpot">
                 <div class="industry-info">
                     <h3>🔥 火鍋</h3>
                     <p>深夜、都會、Lounge 風格。暖霧逆光，營造麻辣煙霧的儀式感。</p>
@@ -645,7 +660,7 @@
                 </div>
             </div>
 
-            <div id="bbq" class="industry-content">
+            <div id="bbq" class="industry-content" role="tabpanel" aria-labelledby="tab-bbq">
                 <div class="industry-info">
                     <h3>🥩 燒肉</h3>
                     <p>炭火、煙霧、粗獷。側光強調火焰，暖黃色調呈現燒烤的原始魅力。</p>
@@ -663,7 +678,7 @@
                 </div>
             </div>
 
-            <div id="tea" class="industry-content">
+            <div id="tea" class="industry-content" role="tabpanel" aria-labelledby="tab-tea">
                 <div class="industry-info">
                     <h3>🍵 茶飲</h3>
                     <p>清新、透亮、療癒。自然光搭配柔光，展現茶飲的清爽質感。</p>
@@ -681,7 +696,7 @@
                 </div>
             </div>
 
-            <div id="coffee" class="industry-content">
+            <div id="coffee" class="industry-content" role="tabpanel" aria-labelledby="tab-coffee">
                 <div class="industry-info">
                     <h3>☕ 咖啡</h3>
                     <p>暖調、文青、慢時光。暖黃木質調，呈現咖啡館的溫馨氛圍。</p>
@@ -699,7 +714,7 @@
                 </div>
             </div>
 
-            <div id="korean" class="industry-content">
+            <div id="korean" class="industry-content" role="tabpanel" aria-labelledby="tab-korean">
                 <div class="industry-info">
                     <h3>🇰🇷 韓式</h3>
                     <p>繽紛、活力、年輕。明亮乾淨的視角，展現韓式料理的繽紛色彩。</p>
@@ -738,7 +753,7 @@
                         <li>DALL-E 圖片攻略</li>
                         <li>社群文案模板</li>
                     </ul>
-                    <a href="#" class="btn btn-outline" style="width:100%; text-align:center;">取得資源包</a>
+                    <a href="mailto:sales@neuxa.com?subject=購買餐飲品牌流水線資源包" class="btn btn-outline" style="width:100%; text-align:center;">取得資源包</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -752,7 +767,7 @@
                         <li>社群提問頻道</li>
                         <li>優先取得新產業包</li>
                     </ul>
-                    <a href="#" class="btn btn-primary" style="width:100%; text-align:center;">開始年訂閱</a>
+                    <a href="mailto:sales@neuxa.com?subject=購買產業年訂閱" class="btn btn-primary" style="width:100%; text-align:center;">開始年訂閱</a>
                 </div>
 
                 <div class="pricing-card">
@@ -765,7 +780,7 @@
                         <li>優先取得新包搶先版</li>
                         <li>企業訓練教材</li>
                     </ul>
-                    <a href="#" class="btn btn-outline" style="width:100%; text-align:center;">取得白標</a>
+                    <a href="mailto:sales@neuxa.com?subject=購買白標授權" class="btn btn-outline" style="width:100%; text-align:center;">取得白標</a>
                 </div>
             </div>
         </div>
@@ -776,7 +791,7 @@
         <div class="container">
             <h2>想要一個<strong style="color:var(--primary)">示範案例</strong>？</h2>
             <p>如果你現在有一個餐飲品牌構想，告訴我。我用 30 分鐘幫你跑一遍流程，你可以看到「買了之後會拿到什麼」。</p>
-            <a href="#" class="btn btn-primary">預約示範</a>
+                    <a href="mailto:contact@neuxa.com?subject=餐飲品牌流水線資源包" class="btn btn-primary">預約示範</a>
         </div>
     </section>
 
@@ -788,11 +803,18 @@
     </footer>
 
     <script>
-        function showIndustry(id) {
+        function showIndustry(id, btn) {
+            // Fix: use btn param instead of event.target (Firefox compatibility)
             document.querySelectorAll('.industry-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.industry-tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.industry-tab').forEach(el => {
+                el.classList.remove('active');
+                el.setAttribute('aria-selected', 'false');
+            });
             document.getElementById(id).classList.add('active');
-            event.target.classList.add('active');
+            if (btn) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+            }
         }
     </script>
 </body>
